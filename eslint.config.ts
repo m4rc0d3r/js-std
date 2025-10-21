@@ -31,6 +31,8 @@ export default defineConfig([
   tseslint.configs.stylisticTypeChecked,
   {
     rules: {
+      eqeqeq: "error",
+
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "@typescript-eslint/consistent-type-exports": "error",
       "@typescript-eslint/consistent-type-imports": "error",
