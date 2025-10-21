@@ -1,0 +1,25 @@
+{
+  "name": "@m4rc0d3r/js-std",
+  "version": "0.0.0",
+  "description": "The package acts as something like a standard JavaScript library and provides extended versions of standard functions, as well as functions that are not included in JavaScript out of the box.",
+  "keywords": [
+    "js-std",
+    "javascript",
+    "typescript",
+    "utility",
+    "utils",
+    "helpers",
+    "stdlib",
+    "core",
+    "esm",
+    "commonjs"
+  ],
+  "author": "Mark <m4rc0d3r@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m4rc0d3r/js-std.git"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "type": "module"
+}
