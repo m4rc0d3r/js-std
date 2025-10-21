@@ -21,8 +21,18 @@
     "prettier-plugin-jsdoc": "^1.3.3",
     "syncpack": "^13.0.4",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.2"
+    "typescript-eslint": "^8.46.2",
+    "unbuild": "^3.6.1"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "commonjs",
     "core",
@@ -36,9 +46,11 @@
     "utils"
   ],
   "license": "ISC",
+  "main": "./dist/index.cjs",
   "packageManager": "pnpm@10.11.0",
   "repository": "m4rc0d3r/js-std.git",
   "scripts": {
+    "build": "unbuild",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint:check": "eslint .",
@@ -46,5 +58,6 @@
     "prepare": "husky",
     "typeCheck": "tsc --noEmit"
   },
-  "type": "module"
+  "type": "module",
+  "types": "./dist/index.d.ts"
 }
