@@ -1,11 +1,17 @@
 import js from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
+const FILE_EXTENSIONS = {
+  js: ["js", "cjs", "mjs"],
+  ts: ["ts", "mts", "cts"],
+};
+
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    files: [`**/*.{${Object.values(FILE_EXTENSIONS).flat().join(",")}}`],
     plugins: {
       js,
     },
@@ -45,7 +51,45 @@ export default defineConfig([
     },
   },
   {
-    files: ["**/*.{js,mjs,cjs}"],
+    files: [`**/*.{${Object.values(FILE_EXTENSIONS.js).join(",")}}`],
     ...tseslint.configs.disableTypeChecked,
+  },
+  importPlugin.flatConfigs.recommended,
+  {
+    settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+        node: {
+          extensions: Object.values(FILE_EXTENSIONS)
+            .flat()
+            .map((value) => `.${value}`),
+        },
+      },
+    },
+    rules: {
+      "import/no-empty-named-blocks": "error",
+      "import/no-absolute-path": "error",
+      "import/no-self-import": "error",
+      "import/no-useless-path-segments": [
+        "error",
+        {
+          noUselessIndex: true,
+        },
+      ],
+      "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "import/exports-last": "error",
+      "import/first": "error",
+      "import/group-exports": "error",
+      "import/newline-after-import": "error",
+      "import/no-named-default": "error",
+      "import/order": [
+        "error",
+        {
+          "newlines-between": "always",
+        },
+      ],
+    },
   },
 ]);
