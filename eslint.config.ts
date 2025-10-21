@@ -17,5 +17,10 @@ export default defineConfig([
       },
     },
   },
-  tseslint.configs.recommended,
+  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
+  {
+    files: ["**/*.{js,mjs,cjs}"],
+    ...tseslint.configs.disableTypeChecked,
+  },
 ]);
