@@ -22,6 +22,9 @@ export default defineConfig([
         ...globals.browser,
         ...globals.node,
       },
+      parserOptions: {
+        projectService: true,
+      },
     },
   },
   tseslint.configs.recommendedTypeChecked,
