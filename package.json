@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "author": "Mark <m4rc0d3r@gmail.com>",
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/types": "^20.0.0",
     "@eslint/js": "^9.38.0",
     "@types/node": "^24.9.1",
     "eslint": "^9.38.0",
