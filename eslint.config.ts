@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import prettierConfig from "eslint-config-prettier/flat";
 import importPlugin from "eslint-plugin-import";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
@@ -92,4 +93,5 @@ export default defineConfig([
       ],
     },
   },
+  prettierConfig,
 ]);
